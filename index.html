@@ -11,10 +11,12 @@
             color: aliceblue;
             text-align: center;
             height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            margin: 0;
         }
 
         .tiltshift{
@@ -30,14 +32,13 @@
         }
 
         .background{
-            /* background-image: url(https://images.emojiterra.com/twitter/v13.1/512px/1f567.png); */
             background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='50px'><text x='-5' y='42' fill='red' font-size='45'>🕧</text></svg>");
             background-repeat: repeat;
             height: 500000px;
             width: 500000px;
             transform: rotate3d(14, 4, -4, 35deg);
             z-index: -1;
-            position: absolute;
+            position: fixed;
             top: -300000px;
             left: -300000px;
             animation: cssAnimation_0 10000s infinite linear;
@@ -58,7 +59,7 @@
         }
         
         #billboard p{
-            float: left;
+            display: inline-block;
         }
 
         #billboard p:nth-child(odd){
@@ -82,13 +83,20 @@
         #time{
             font-size: 5em;
         }
+
+        @media(max-width: 885px){
+            #billboard p{
+                position: relative !important;
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <div><div class="background"></div><div class="tiltshift"></div></div>
     <div id="billboard">
         <p id="One">🕧</p>
-        <p>A broken clock is right twice a day<br><span id="time"></span></p>
+        <p id="infosize">A broken clock is right twice a day<br><span id="time"></span></p>
         <p id="Two">🕧</p>
     </div>
 </body>
@@ -114,9 +122,14 @@
     Two.style.fontSize = scale - 25 + "px";
     Two.style.lineHeight = scale + "px";
 
-    var IconWidth = One.offsetWidth;
+    var infosize = document.getElementById("infosize");
+    var IconWidth = infosize.offsetHeight;
     var Billboard = document.getElementById("billboard");
     var CurrentWidth = Billboard.offsetWidth;
-    Billboard.style.width = CurrentWidth + (2 * IconWidth) + "px";
+    console.log(window.innerWidth);
+    
+    if(window.innerWidth > 885){
+        Billboard.style.width = CurrentWidth + (2 * IconWidth) + "px";
+    }
 </script>
 </html>

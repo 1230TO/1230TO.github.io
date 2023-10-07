@@ -113,7 +113,8 @@
         output.innerHTML = "It is not 12:30";
     }
 
-    var scale = document.getElementById("billboard").offsetHeight;
+    var Billboard = document.getElementById("billboard");
+    var scale = Billboard.offsetHeight;
     var One = document.getElementById("One");
     var Two = document.getElementById("Two");
 
@@ -122,14 +123,123 @@
     Two.style.fontSize = scale - 25 + "px";
     Two.style.lineHeight = scale + "px";
 
-    var infosize = document.getElementById("infosize");
-    var IconWidth = infosize.offsetHeight;
-    var Billboard = document.getElementById("billboard");
+    var URL = window.location.search.split('?')[1];
+    var hours = 0;
+    var minutes = 0;
+    if (URL != null){
+        switch (URL) {
+            case "%F0%9F%95%90":
+                minutes = 30;
+                output.innerHTML = "🕐 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+                console.log("ran");
+            case "%F0%9F%95%9C":
+                hours = 1;
+                output.innerHTML = "🕜 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%91":
+                hours = 1;
+                minutes = 30;
+                output.innerHTML = "🕑 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%9D":
+                hours = 2;
+                output.innerHTML = "🕝 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%92":
+                hours = 2;
+                minutes = 30;
+                output.innerHTML = "🕒 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%9E":
+                hours = 3;
+                output.innerHTML = "🕞 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%93":
+                hours = 3;
+                minutes = 30;
+                output.innerHTML = "🕓 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%9F":
+                hours = 4;
+                output.innerHTML = "🕟 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%94":
+                hours = 4;
+                minutes = 30;
+                output.innerHTML = "🕔 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A0":
+                hours = 5;
+                output.innerHTML = "🕠 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%95":
+                hours = 5;
+                minutes = 30;
+                output.innerHTML = "🕕 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A1":
+                hours = 6;
+                output.innerHTML = "🕡 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%96":
+                hours = 6;
+                minutes = 30;
+                output.innerHTML = "🕖 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A2":
+                hours = 7;
+                output.innerHTML = "🕢 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%97":
+                hours = 7;
+                minutes = 30;
+                output.innerHTML = "🕗 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A3":
+                hours = 8;
+                output.innerHTML = "🕣 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%98":
+                hours = 8;
+                minutes = 30;
+                output.innerHTML = "🕘 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A4":
+                hours = 9;
+                output.innerHTML = "🕤 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%99":
+                hours = 9;
+                minutes = 30;
+                output.innerHTML = "🕙 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A5":
+                hours = 10;
+                output.innerHTML = "🕥 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%9A":
+                hours = 10;
+                minutes = 30;
+                output.innerHTML = "🕚 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%A6":
+                hours = 11;
+                output.innerHTML = "🕦 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+            case "%F0%9F%95%9B":
+                hours = 11;
+                minutes = 30;
+                output.innerHTML = "🕛 is " + hours + " hours and " + minutes + " minutes from 🕧";
+                break;
+        }
+    }
+
+    var infosize = document.getElementById("infosize").offsetHeight;
     var CurrentWidth = Billboard.offsetWidth;
-    console.log(window.innerWidth);
     
     if(window.innerWidth > 885){
-        Billboard.style.width = CurrentWidth + (2 * IconWidth) + "px";
+        Billboard.style.width = CurrentWidth + (2 * infosize) + "px";
     }
 </script>
 </html>
